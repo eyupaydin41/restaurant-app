@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -37,7 +39,19 @@ public class Restaurant {
     @Column(name = "rating")
     private Double rating;
 
+    @Column(name = "service_rating_average")
+    private Double serviceRatingAverage;
+
+    @Column(name = "taste_rating_average")
+    private Double tasteRatingAverage;
+
+    @Column(name = "price_rating_average")
+    private Double priceRatingAverage;
+
     @Column(name = "description")
     private String description;
+
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CustomerReview> customerReviews;
 
 }
