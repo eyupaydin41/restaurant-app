@@ -1,22 +1,21 @@
 package com.restaurant.restaurantservice.service;
 
-import com.restaurant.restaurantservice.dto.CustomerReviewRequest;
-import com.restaurant.restaurantservice.dto.CustomerReviewResponse;
+import com.restaurant.restaurantservice.dto.CustomerReviewDTO;
 import com.restaurant.restaurantservice.model.CustomerReview;
-
-import java.util.List;
+import com.restaurant.restaurantservice.model.response.Response;
+import org.springframework.http.ResponseEntity;
 
 public interface CustomerReviewService {
 
-    void createReview(CustomerReviewRequest customerReviewRequest);
+    ResponseEntity<Response> createReview(CustomerReviewDTO customerReviewDTO);
 
-    List<CustomerReviewResponse> getAllReviews();
+    ResponseEntity<Response> getAllReviews();
 
-    CustomerReviewResponse getReviewByID(Long id);
+    ResponseEntity<Response> getReviewByID(Long id);
 
-    void updateReview(Long id, CustomerReviewRequest customerReviewRequest);
+    ResponseEntity<Response> updateReview(Long id, CustomerReviewDTO customerReviewDTO);
 
-    void deleteReview(Long id);
+    ResponseEntity<Response> deleteReview(Long id);
 
-    CustomerReviewResponse entityToDto(CustomerReview customerReview);
+    CustomerReviewDTO entityToDto(CustomerReview customerReview);
 }
