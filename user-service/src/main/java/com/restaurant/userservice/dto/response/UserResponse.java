@@ -1,4 +1,4 @@
-package com.restaurant.userservice.dto;
+package com.restaurant.userservice.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
