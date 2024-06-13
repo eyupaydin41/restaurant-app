@@ -1,21 +1,21 @@
 package com.restaurant.userservice.service;
 
-import com.restaurant.userservice.dto.UserRequest;
-import com.restaurant.userservice.dto.UserResponse;
+import com.restaurant.userservice.dto.UserDTO;
 import com.restaurant.userservice.model.User;
+import com.restaurant.userservice.model.response.Response;
+import org.springframework.http.ResponseEntity;
 
-import java.util.List;
 
 public interface UserService {
-    void createUser(UserRequest userRequest);
+    ResponseEntity<Response> createUser(UserDTO userDTO);
 
-    List<UserResponse> getAllUsers();
+    ResponseEntity<Response> getAllUsers();
 
-    UserResponse entityToDto(User user);
+    ResponseEntity<Response> getUserByID(Long id);
 
-    UserResponse getUserByID(Long id);
+    ResponseEntity<Response> updateUser(Long id, UserDTO userDTO);
 
-    void updateUser(Long id, UserRequest userRequest);
+    ResponseEntity<Response> deleteUser(Long id);
 
-    void deleteUser(Long id);
+    UserDTO entityToDto(User user);
 }
