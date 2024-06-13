@@ -1,12 +1,13 @@
 package com.restaurant.restaurantservice.exception;
 
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class ResourceNotFoundException extends RuntimeException {
-    public ResourceNotFoundException(String message) {
-        super(message);
+public class ReviewNotFoundException extends RuntimeException{
+
+    public ReviewNotFoundException(Long id) {
+        super("CustomerReview not found with id: " + id);
     }
+
 }
