@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class DuplicateReviewException extends RuntimeException{
-    public DuplicateReviewException(String message) {
-        super(message);
+    public DuplicateReviewException() {
+        super("User has already reviewed this restaurant");
     }
 }
