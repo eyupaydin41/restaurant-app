@@ -1,4 +1,4 @@
-package com.restaurant.restaurantservice.dto;
+package com.restaurant.restaurantservice.dto.response;
 
 import com.restaurant.restaurantservice.model.RestaurantCategory;
 import lombok.AllArgsConstructor;
@@ -11,12 +11,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class RestaurantResponse {
-    private Long id;
     private String name;
     private RestaurantCategory category;
     private String address;
     private String phone;
     private String email;
-    private Double rating;
     private String description;
+    private Double rating;
+    private Double serviceRatingAverage;
+    private Double tasteRatingAverage;
+    private Double priceRatingAverage;
+    private Double ratingAverage;
 }
