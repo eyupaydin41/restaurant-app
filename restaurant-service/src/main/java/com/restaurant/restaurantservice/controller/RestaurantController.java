@@ -1,13 +1,12 @@
 package com.restaurant.restaurantservice.controller;
 
-import com.restaurant.restaurantservice.dto.RestaurantRequest;
-import com.restaurant.restaurantservice.dto.RestaurantResponse;
+import com.restaurant.restaurantservice.dto.RestaurantDTO;
+import com.restaurant.restaurantservice.model.response.Response;
 import com.restaurant.restaurantservice.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/restaurant")
@@ -18,36 +17,32 @@ public class RestaurantController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createRestaurant(@RequestBody RestaurantRequest restaurantRequest) {
-        restaurantService.createRestaurant(restaurantRequest);
+    public ResponseEntity<Response> createRestaurant(@RequestBody RestaurantDTO restaurantDTO) {
+        return restaurantService.createRestaurant(restaurantDTO);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void updateRestaurant(@PathVariable Long id, @RequestBody RestaurantRequest restaurantRequest) {
-        restaurantService.updateRestaurant(id,restaurantRequest);
+    public ResponseEntity<Response> updateRestaurant(@PathVariable Long id, @RequestBody RestaurantDTO restaurantDTO) {
+        return restaurantService.updateRestaurant(id, restaurantDTO);
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<RestaurantResponse> getAllRestaurants() {
+    public ResponseEntity<Response> getAllRestaurants() {
         return restaurantService.getAllRestaurants();
     }
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.FOUND)
-    public RestaurantResponse findRestaurantByID(@PathVariable Long id) {
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Response> findRestaurantByID(@PathVariable Long id) {
         return restaurantService.getRestaurantByID(id);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteRestaurant(@PathVariable Long id) {
-        restaurantService.deleteRestaurant(id);
+    public ResponseEntity<Response> deleteRestaurant(@PathVariable Long id) {
+        return restaurantService.deleteRestaurant(id);
     }
-
-
-
-
 
 }
