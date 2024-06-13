@@ -1,17 +1,19 @@
 package com.restaurant.userservice.service.impl;
 
-import com.restaurant.restaurantservice.exception.ResourceNotFoundException;
-import com.restaurant.userservice.dto.UserRequest;
-import com.restaurant.userservice.dto.UserResponse;
+import com.restaurant.userservice.dto.UserDTO;
+import com.restaurant.userservice.exception.UserNotFoundException;
 import com.restaurant.userservice.model.User;
+import com.restaurant.userservice.model.response.Response;
+import com.restaurant.userservice.model.response.ResponseBuilder;
 import com.restaurant.userservice.repository.UserRepository;
 import com.restaurant.userservice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,62 +21,85 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
+    private final ResponseBuilder responseBuilder;
 
     @Override
-    public void createUser(UserRequest userRequest) {
+    public ResponseEntity<Response> createUser(UserDTO userDTO) {
         User user = User.builder()
-                .name(userRequest.getName())
-                .surname(userRequest.getSurname())
-                .email(userRequest.getEmail())
-                .password(userRequest.getPassword())
+                .name(userDTO.getName())
+                .surname(userDTO.getSurname())
+                .email(userDTO.getEmail())
+                .password(userDTO.getPassword())
                 .build();
 
         userRepository.save(user);
+
+        String message = "The user has been created successfully.";
+        return responseBuilder.buildResponse(message, HttpStatus.CREATED,userDTO);
+
     }
 
     @Override
-    public List<UserResponse> getAllUsers() {
-        return userRepository.findAll()
+    public ResponseEntity<Response> getAllUsers() {
+        List<UserDTO> list = userRepository.findAll()
                 .stream()
                 .map(this::entityToDto)
-                .collect(Collectors.toList());
+                .toList();
+
+        String message = "The user list has been successfully fetched.";
+        return responseBuilder.buildResponse(message,HttpStatus.OK,list);
 
     }
 
 
     @Override
-    public UserResponse getUserByID(Long id) {
-        return userRepository.findById(id).map(this::entityToDto).orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+    public ResponseEntity<Response> getUserByID(Long id) {
+        UserDTO userDTO = userRepository.findById(id).map(this::entityToDto)
+                .orElseThrow(() -> new UserNotFoundException(id));
+
+        String message = "User found with id: " + id;
+
+        return responseBuilder.buildResponse(message,HttpStatus.OK,userDTO);
+
     }
 
     @Override
-    public void updateUser(Long id, UserRequest userRequest) {
+    public ResponseEntity<Response> updateUser(Long id, UserDTO userDTO) {
         userRepository.findById(id).ifPresentOrElse(
                 user -> {
-                    user.setName(userRequest.getName());
-                    user.setSurname(userRequest.getSurname());
-                    user.setEmail(userRequest.getEmail());
-                    user.setPassword(userRequest.getPassword());
+                    user.setName(userDTO.getName());
+                    user.setSurname(userDTO.getSurname());
+                    user.setEmail(userDTO.getEmail());
+                    user.setPassword(userDTO.getPassword());
                     userRepository.save(user);
                 },
                 () -> {
-                    throw new ResourceNotFoundException("User not found with id: " + id);
+                    throw new UserNotFoundException(id);
                 }
         );
+
+        String message = "Successfully updated user with ID: " + id;
+        return responseBuilder.buildResponse(message,HttpStatus.OK,userDTO);
+
     }
 
     @Override
-    public void deleteUser(Long id) {
-        userRepository.findById(id).ifPresentOrElse(userRepository::delete,
-                () -> {
-                    throw new ResourceNotFoundException("User not found with id: " + id);
-                }
+    public ResponseEntity<Response> deleteUser(Long id) {
+        User user = userRepository.findById(id).orElseThrow(
+                () -> new UserNotFoundException(id)
         );
+
+        UserDTO userDTO = entityToDto(user);
+        userRepository.delete(user);
+
+        String message = "Successfully deleted user with ID: " + id;
+        return responseBuilder.buildResponse(message,HttpStatus.OK,userDTO);
+
     }
 
     @Override
-    public UserResponse entityToDto(User user) {
-        return modelMapper.map(user, UserResponse.class);
+    public UserDTO entityToDto(User user) {
+        return modelMapper.map(user, UserDTO.class);
     }
 
 
