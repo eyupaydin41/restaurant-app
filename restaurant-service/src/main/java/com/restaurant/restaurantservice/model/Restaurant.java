@@ -36,8 +36,8 @@ public class Restaurant {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "rating")
-    private Double rating;
+    @Column(name = "rating_average")
+    private Double ratingAverage;
 
     @Column(name = "service_rating_average")
     private Double serviceRatingAverage;
