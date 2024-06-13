@@ -1,4 +1,4 @@
-package com.restaurant.restaurantservice.exception;
+package com.restaurant.restaurantservice.exception.global;
 
 import lombok.Data;
 
