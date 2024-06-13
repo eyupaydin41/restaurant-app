@@ -1,17 +1,21 @@
 package com.restaurant.restaurantservice.service.impl;
 
-import com.restaurant.restaurantservice.dto.RestaurantRequest;
-import com.restaurant.restaurantservice.dto.RestaurantResponse;
-import com.restaurant.restaurantservice.exception.ResourceNotFoundException;
+import com.restaurant.restaurantservice.dto.RestaurantDTO;
+import com.restaurant.restaurantservice.dto.response.RestaurantResponse;
+import com.restaurant.restaurantservice.dto.response.RestaurantWithReviewsResponse;
+import com.restaurant.restaurantservice.exception.RestaurantNotFoundException;
 import com.restaurant.restaurantservice.model.Restaurant;
+import com.restaurant.restaurantservice.model.response.Response;
+import com.restaurant.restaurantservice.model.response.ResponseBuilder;
 import com.restaurant.restaurantservice.repository.RestaurantRepository;
 import com.restaurant.restaurantservice.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,70 +23,93 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     private final RestaurantRepository restaurantRepository;
     private final ModelMapper modelMapper;
+    private final ResponseBuilder responseBuilder;
 
     @Override
-    public void createRestaurant(RestaurantRequest restaurantRequest) {
+    public ResponseEntity<Response> createRestaurant(RestaurantDTO restaurantDTO) {
         Restaurant restaurant = Restaurant.builder()
-                .name(restaurantRequest.getName())
-                .category(restaurantRequest.getCategory())
-                .address(restaurantRequest.getAddress())
-                .phone(restaurantRequest.getPhone())
-                .email(restaurantRequest.getEmail())
-                .description(restaurantRequest.getDescription())
+                .name(restaurantDTO.getName())
+                .category(restaurantDTO.getCategory())
+                .address(restaurantDTO.getAddress())
+                .phone(restaurantDTO.getPhone())
+                .email(restaurantDTO.getEmail())
+                .description(restaurantDTO.getDescription())
+                .serviceRatingAverage(0.0)
+                .priceRatingAverage(0.0)
+                .tasteRatingAverage(0.0)
+                .ratingAverage(0.0)
                 .build();
 
         restaurantRepository.save(restaurant);
+
+        return responseBuilder.buildResponse(HttpStatus.CREATED);
     }
 
     @Override
-    public List<RestaurantResponse> getAllRestaurants() {
-        return restaurantRepository.findAll()
+    public ResponseEntity<Response> getAllRestaurants() {
+        List<RestaurantResponse> list = restaurantRepository.findAll()
                 .stream()
-                .map(this::EntityToDto)
-                .collect(Collectors.toList());
+                .map(this::entityToDto)
+                .toList();
+
+        String message = "The restaurant list has been successfully fetched.";
+
+        return responseBuilder.buildResponse(message,HttpStatus.OK, list);
     }
 
 
     @Override
-    public RestaurantResponse getRestaurantByID(Long id) {
-        return restaurantRepository.findById(id).map(this::EntityToDto)
-                .orElseThrow(() -> new ResourceNotFoundException("Restaurant not found with id: " + id));
+    public ResponseEntity<Response> getRestaurantByID(Long id) {
+        Restaurant restaurant = restaurantRepository.findById(id)
+                .orElseThrow(() -> new RestaurantNotFoundException(id));
+
+        RestaurantWithReviewsResponse response = modelMapper.map(restaurant, RestaurantWithReviewsResponse.class);
+
+        String message = "Restaurant found with id: " + id;
+
+        return responseBuilder.buildResponse(message,HttpStatus.OK,response);
     }
 
     @Override
-    public void updateRestaurant(Long id, RestaurantRequest restaurantRequest) {
+    public ResponseEntity<Response> updateRestaurant(Long id, RestaurantDTO restaurantDTO) {
 
-        restaurantRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Restaurant not found with id: " + id));
+        Restaurant restaurant = restaurantRepository.findById(id)
+                .orElseThrow(() -> new RestaurantNotFoundException(id));
 
-        Restaurant restaurant = Restaurant.builder()
-                .id(id)
-                .name(restaurantRequest.getName())
-                .description(restaurantRequest.getDescription())
-                .email(restaurantRequest.getEmail())
-                .phone(restaurantRequest.getPhone())
-                .category(restaurantRequest.getCategory())
-                .address(restaurantRequest.getAddress())
-                .build();
+        restaurant.setName(restaurantDTO.getName());
+        restaurant.setDescription(restaurantDTO.getDescription());
+        restaurant.setEmail(restaurantDTO.getEmail());
+        restaurant.setPhone(restaurantDTO.getPhone());
+        restaurant.setCategory(restaurantDTO.getCategory());
+        restaurant.setAddress(restaurantDTO.getAddress());
 
         restaurantRepository.save(restaurant);
 
+
+        String message = "Successfully updated restaurant with ID: " + id;
+        return responseBuilder.buildResponse(message,HttpStatus.OK,restaurantDTO);
+
     }
 
     @Override
-    public void deleteRestaurant(Long id) {
-        restaurantRepository.findById(id).ifPresentOrElse(restaurantRepository::delete,
+    public ResponseEntity<Response> deleteRestaurant(Long id) {
+        Restaurant restaurant = restaurantRepository.findById(id).orElseThrow(
                 () -> {
-            throw new ResourceNotFoundException("Restaurant not found with id: " + id);
-        }
+                    throw new RestaurantNotFoundException(id);
+                }
         );
 
+        RestaurantResponse response = entityToDto(restaurant);
+        restaurantRepository.delete(restaurant);
+
+        String message = "Successfully deleted restaurant with ID: " + id;
+
+        return responseBuilder.buildResponse(message,HttpStatus.OK,response);
     }
 
     @Override
-    public RestaurantResponse EntityToDto(Restaurant restaurant) {
+    public RestaurantResponse entityToDto(Restaurant restaurant) {
         return modelMapper.map(restaurant, RestaurantResponse.class);
     }
-
-
 
 }
