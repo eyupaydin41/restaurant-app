@@ -85,26 +85,19 @@ public class RestaurantServiceImpl implements RestaurantService {
 
         restaurantRepository.save(restaurant);
 
-
-        String message = "Successfully updated restaurant with ID: " + id;
-        return responseBuilder.buildResponse(message,HttpStatus.OK,restaurantDTO);
+        return responseBuilder.buildResponse(HttpStatus.OK);
 
     }
 
     @Override
     public ResponseEntity<Response> deleteRestaurant(Long id) {
-        Restaurant restaurant = restaurantRepository.findById(id).orElseThrow(
+        restaurantRepository.findById(id).ifPresentOrElse(restaurantRepository::delete,
                 () -> {
                     throw new RestaurantNotFoundException(id);
                 }
         );
 
-        RestaurantResponse response = entityToDto(restaurant);
-        restaurantRepository.delete(restaurant);
-
-        String message = "Successfully deleted restaurant with ID: " + id;
-
-        return responseBuilder.buildResponse(message,HttpStatus.OK,response);
+        return responseBuilder.buildResponse(HttpStatus.OK);
     }
 
     @Override
