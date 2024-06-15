@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: native
+  application:
+    name: app-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: restaurant-service
+          uri: http://localhost:8082
+          predicates:
+          - Path=/restaurant/**, /test/**
+
+
+server:
+  port: 8045
+
