@@ -6,12 +6,30 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: user-service
+          uri: http://localhost:8081
+          predicates:
+          - Path=/user/**
         - id: restaurant-service
           uri: http://localhost:8082
           predicates:
-          - Path=/restaurant/**, /test/**
-
+          - Path=/restaurant/**, /reviews/**
 
 server:
   port: 8045
 
+springdoc:
+  enable-native-support: true
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    config-url: /v3/api-docs/swagger-config
+    urls:
+      - url: /v3/api-docs
+        name: API Gateway Service
+      - url: /user/v3/api-docs
+        name: User Service
+      - url: /restaurant/v3/api-docs
+        name: Restaurant Service
