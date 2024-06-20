@@ -13,7 +13,7 @@ public interface UserService {
 
     ResponseEntity<Response> getUserByID(Long id);
 
-    ResponseEntity<Response> updateUser(Long id, UserDTO userDTO);
+    ResponseEntity<Response> updateUser(UserDTO userDTO);
 
     ResponseEntity<Response> deleteUser(Long id);
 
