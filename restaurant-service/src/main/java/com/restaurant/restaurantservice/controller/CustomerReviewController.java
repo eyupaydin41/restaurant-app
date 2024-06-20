@@ -1,6 +1,7 @@
 package com.restaurant.restaurantservice.controller;
 
 import com.restaurant.restaurantservice.dto.CustomerReviewDTO;
+import com.restaurant.restaurantservice.dto.DeleteReviewRequest;
 import com.restaurant.restaurantservice.exception.InvalidRatingException;
 import com.restaurant.restaurantservice.model.response.Response;
 import com.restaurant.restaurantservice.service.CustomerReviewService;
@@ -50,7 +51,7 @@ public class CustomerReviewController {
 
     @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Response> deleteReview(@RequestBody CustomerReviewDTO customerReviewDTO) {
-        return customerReviewService.deleteReview(customerReviewDTO.getUserId(), customerReviewDTO.getId());
+    public ResponseEntity<Response> deleteReview(@RequestBody DeleteReviewRequest deleteReviewRequest) {
+        return customerReviewService.deleteReview(deleteReviewRequest);
     }
 }
