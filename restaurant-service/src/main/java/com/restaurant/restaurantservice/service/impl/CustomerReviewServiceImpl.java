@@ -1,15 +1,15 @@
 package com.restaurant.restaurantservice.service.impl;
 
 import com.restaurant.restaurantservice.dto.CustomerReviewDTO;
-import com.restaurant.restaurantservice.exception.DuplicateReviewException;
-import com.restaurant.restaurantservice.exception.RestaurantNotFoundException;
-import com.restaurant.restaurantservice.exception.ReviewNotFoundException;
+import com.restaurant.restaurantservice.dto.DeleteReviewRequest;
+import com.restaurant.restaurantservice.exception.*;
 import com.restaurant.restaurantservice.model.CustomerReview;
 import com.restaurant.restaurantservice.model.Restaurant;
 import com.restaurant.restaurantservice.model.response.Response;
-import com.restaurant.restaurantservice.model.response.ResponseBuilder;
+import com.restaurant.restaurantservice.model.response.ResponseBuilderA;
 import com.restaurant.restaurantservice.repository.RestaurantRepository;
 import com.restaurant.restaurantservice.repository.CustomerReviewRepository;
+import com.restaurant.restaurantservice.repository.UserRepository;
 import com.restaurant.restaurantservice.service.CustomerReviewService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -28,18 +28,20 @@ public class CustomerReviewServiceImpl implements CustomerReviewService {
 
     private final CustomerReviewRepository customerReviewRepository;
     private final RestaurantRepository restaurantRepository;
+    private final UserRepository userRepository;
     private final ModelMapper modelMapper;
-    private final ResponseBuilder responseBuilder;
+    private final ResponseBuilderA responseBuilderA;
 
     @Override
     public ResponseEntity<Response> createReview(CustomerReviewDTO customerReviewDTO) {
         Restaurant restaurant = restaurantRepository.findById(customerReviewDTO.getRestaurantId())
                 .orElseThrow(() -> new RestaurantNotFoundException(customerReviewDTO.getRestaurantId()));
 
-        // customerReviewDTO.getUserId() -> user mevcut mu kontrolü yapılacak
+        userRepository.findById(customerReviewDTO.getUserId())
+                        .orElseThrow(() -> new UserNotFoundException(customerReviewDTO.getUserId()));
 
         customerReviewRepository.findByUserIdAndRestaurantId(customerReviewDTO.getUserId(), customerReviewDTO.getRestaurantId())
-                .ifPresent(review -> {
+                .ifPresent((review) -> {
                     throw new DuplicateReviewException();
                 });
 
@@ -56,8 +58,7 @@ public class CustomerReviewServiceImpl implements CustomerReviewService {
         customerReviewRepository.save(customerReview);
         updateRestaurantRatings(restaurant);
 
-        String message = "Successfully created the customer review.";
-        return responseBuilder.buildResponse(message, HttpStatus.CREATED, customerReviewDTO);
+        return responseBuilderA.buildResponse(HttpStatus.CREATED);
 
     }
 
@@ -70,7 +71,7 @@ public class CustomerReviewServiceImpl implements CustomerReviewService {
                 .toList();
 
         String message = "The customer review list has been successfully fetched.";
-        return responseBuilder.buildResponse(message, HttpStatus.OK, list);
+        return responseBuilderA.buildResponse(message, HttpStatus.OK, list);
     }
 
     @Override
@@ -81,14 +82,23 @@ public class CustomerReviewServiceImpl implements CustomerReviewService {
 
         String message = "Custoemr review found with id: " + id;
 
-        return responseBuilder.buildResponse(message, HttpStatus.OK, response);
+        return responseBuilderA.buildResponse(message, HttpStatus.OK, response);
 
     }
 
     @Override
-    public ResponseEntity<Response> updateReview(Long reviewId, CustomerReviewDTO customerReviewDTO) {
-        CustomerReview customerReview = customerReviewRepository.findById(reviewId)
-                .orElseThrow(() -> new ReviewNotFoundException(reviewId));
+    public ResponseEntity<Response> updateReview(CustomerReviewDTO customerReviewDTO) {
+
+        CustomerReview customerReview = customerReviewRepository.findById(customerReviewDTO.getId())
+                .orElseThrow(() -> new ReviewNotFoundException(customerReviewDTO.getId())); // yorum mevcut mu ?
+
+        userRepository.findById(customerReviewDTO.getUserId())
+                .orElseThrow( () -> new UserNotFoundException(customerReviewDTO.getUserId()) ); // user mevcut mu ?
+
+
+        if (!customerReview.getUserId().equals(customerReviewDTO.getUserId())) { // güncelleyen user, yorumu yazan user mı ?
+            throw new UnauthorizedOperationException("The user not allowed to update this review.");
+        }
 
         customerReview.setServiceRating(customerReviewDTO.getServiceRating());
         customerReview.setTasteRating(customerReviewDTO.getTasteRating());
@@ -98,26 +108,28 @@ public class CustomerReviewServiceImpl implements CustomerReviewService {
         customerReviewRepository.save(customerReview);
         updateRestaurantRatings(customerReview.getRestaurant());
 
-        String message = "Successfully updated customer review with ID: " + reviewId;
-
-        return responseBuilder.buildResponse(message, HttpStatus.OK, customerReviewDTO);
-
+        return responseBuilderA.buildResponse(HttpStatus.OK);
 
     }
 
     @Override
-    public ResponseEntity<Response> deleteReview(Long reviewId) {
-        CustomerReview customerReview = customerReviewRepository.findById(reviewId)
-                .orElseThrow(() -> new ReviewNotFoundException(reviewId));
+    public ResponseEntity<Response> deleteReview(DeleteReviewRequest deleteReviewRequest) {
 
-        CustomerReviewDTO customerReviewDTO = entityToDto(customerReview);
+        CustomerReview customerReview = customerReviewRepository.findById(deleteReviewRequest.getReviewId())
+                .orElseThrow(() -> new ReviewNotFoundException(deleteReviewRequest.getReviewId()));
+
+        userRepository.findById(deleteReviewRequest.getUserId())
+                .orElseThrow( () -> new UserNotFoundException(deleteReviewRequest.getUserId()) );
+
+
+        if (!deleteReviewRequest.getUserId().equals(customerReview.getUserId())) {
+            throw new UnauthorizedOperationException("The user not allowed to delete this review.");
+        }
 
         customerReviewRepository.delete(customerReview);
         updateRestaurantRatings(customerReview.getRestaurant());
 
-        String message = "Successfully updated customer review with ID: " + reviewId;
-
-        return responseBuilder.buildResponse(message, HttpStatus.OK, customerReviewDTO);
+        return responseBuilderA.buildResponse(HttpStatus.OK);
 
     }
 
