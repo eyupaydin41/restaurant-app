@@ -1,31 +1,27 @@
 package com.restaurant.restaurantservice.controller;
 
+import com.restaurant.restaurantservice.dto.DeleteRestaurantRequest;
 import com.restaurant.restaurantservice.dto.RestaurantDTO;
+import com.restaurant.restaurantservice.exception.ConstraintException;
 import com.restaurant.restaurantservice.model.response.Response;
 import com.restaurant.restaurantservice.service.RestaurantService;
+
+import java.util.List;
+
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/restaurant")
+@RequestMapping("/restaurant")
 @RequiredArgsConstructor
 public class RestaurantController {
 
     private final RestaurantService restaurantService;
-
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Response> createRestaurant(@RequestBody RestaurantDTO restaurantDTO) {
-        return restaurantService.createRestaurant(restaurantDTO);
-    }
-
-    @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Response> updateRestaurant(@PathVariable Long id, @RequestBody RestaurantDTO restaurantDTO) {
-        return restaurantService.updateRestaurant(id, restaurantDTO);
-    }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -39,10 +35,42 @@ public class RestaurantController {
         return restaurantService.getRestaurantByID(id);
     }
 
-    @DeleteMapping("/{id}")
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Response> createRestaurant(@RequestBody @Valid RestaurantDTO restaurantDTO, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+
+            List<String> errors = bindingResult.getAllErrors()
+                    .stream()
+                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                    .toList();
+
+            throw new ConstraintException(errors);
+
+        }
+        return restaurantService.createRestaurant(restaurantDTO);
+    }
+
+    @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Response> deleteRestaurant(@PathVariable Long id) {
-        return restaurantService.deleteRestaurant(id);
+    public ResponseEntity<Response> updateRestaurant(@RequestBody @Valid RestaurantDTO restaurantDTO, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+
+            List<String> errors = bindingResult.getAllErrors()
+                    .stream()
+                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                    .toList();
+
+            throw new ConstraintException(errors);
+
+        }
+        return restaurantService.updateRestaurant(restaurantDTO);
+    }
+
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Response> deleteRestaurant(@RequestBody DeleteRestaurantRequest deleteRestaurantRequest) {
+        return restaurantService.deleteRestaurant(deleteRestaurantRequest);
     }
 
 }
