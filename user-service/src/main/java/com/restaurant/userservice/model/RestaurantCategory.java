@@ -1,4 +1,4 @@
-package com.restaurant.restaurantservice.model;
+package com.restaurant.userservice.model;
 
 public enum RestaurantCategory {
     KEBAPCI,
