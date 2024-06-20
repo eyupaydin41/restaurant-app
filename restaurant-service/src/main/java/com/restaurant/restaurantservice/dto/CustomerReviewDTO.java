@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerReviewDTO {
+    private Long id;
     private Long userId;
     private Long restaurantId;
     private String comment;
