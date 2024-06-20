@@ -3,6 +3,7 @@ package com.restaurant.userservice.controller;
 import com.restaurant.userservice.dto.UserDTO;
 import com.restaurant.userservice.model.response.Response;
 import com.restaurant.userservice.service.impl.UserServiceImpl;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +15,6 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserServiceImpl userService;
-
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Response> createUser(@RequestBody UserDTO userDTO) {
-        return userService.createUser(userDTO);
-    }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -33,10 +28,16 @@ public class UserController {
         return userService.getUserByID(id);
     }
 
-    @PutMapping("{id}")
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Response> createUser(@RequestBody @Valid UserDTO userDTO) {
+        return userService.createUser(userDTO);
+    }
+
+    @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Response> updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
-        return userService.updateUser(id, userDTO);
+    public ResponseEntity<Response> updateUser(@RequestBody UserDTO userDTO) {
+        return userService.updateUser(userDTO);
     }
 
     @DeleteMapping("{id}")
