@@ -1,6 +1,6 @@
-package com.restaurant.restaurantservice.dto.response;
+package com.restaurant.userservice.dto.response;
 
-import com.restaurant.restaurantservice.model.RestaurantCategory;
+import com.restaurant.userservice.model.RestaurantCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class RestaurantResponse {
-    private String name;
     private Long userId;
+    private String name;
     private RestaurantCategory category;
     private String address;
     private String phone;
