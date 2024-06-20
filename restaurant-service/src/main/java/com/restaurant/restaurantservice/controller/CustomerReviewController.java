@@ -18,24 +18,6 @@ public class CustomerReviewController {
 
     private final CustomerReviewService customerReviewService;
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Response> createReview(@RequestBody @Valid CustomerReviewDTO customerReviewDTO,BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            throw new InvalidRatingException();
-        }
-        return customerReviewService.createReview(customerReviewDTO);
-    }
-
-    @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Response> updateReview(@PathVariable Long id, @RequestBody @Valid CustomerReviewDTO customerReviewDTO,BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            throw new InvalidRatingException();
-        }
-        return customerReviewService.updateReview(id, customerReviewDTO);
-    }
-
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Response> getAllReviews() {
@@ -48,9 +30,27 @@ public class CustomerReviewController {
         return customerReviewService.getReviewByID(id);
     }
 
-    @DeleteMapping("/{id}")
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Response> createReview(@RequestBody @Valid CustomerReviewDTO customerReviewDTO,BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            throw new InvalidRatingException();
+        }
+        return customerReviewService.createReview(customerReviewDTO);
+    }
+
+    @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Response> deleteReview(@PathVariable Long id) {
-        return customerReviewService.deleteReview(id);
+    public ResponseEntity<Response> updateReview(@RequestBody @Valid CustomerReviewDTO customerReviewDTO,BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            throw new InvalidRatingException();
+        }
+        return customerReviewService.updateReview(customerReviewDTO);
+    }
+
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Response> deleteReview(@RequestBody CustomerReviewDTO customerReviewDTO) {
+        return customerReviewService.deleteReview(customerReviewDTO.getUserId(), customerReviewDTO.getId());
     }
 }
