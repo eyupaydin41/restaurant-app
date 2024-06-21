@@ -74,6 +74,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseEntity<Response> updateUser(UserDTO userDTO) {
+
+        if (userRepository.findByEmail(userDTO.getEmail()).isPresent()) {
+            throw new DuplicateUserException(userDTO.getEmail());
+        }
+
         userRepository.findById(userDTO.getId()).ifPresentOrElse(
                 user -> {
                     user.setName(userDTO.getName());
@@ -115,7 +120,6 @@ public class UserServiceImpl implements UserService {
     public UserResponse EntityToResponse(User user) {
         return modelMapper.map(user, UserResponse.class);
     }
-
 
 
 }
