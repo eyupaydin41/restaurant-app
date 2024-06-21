@@ -90,13 +90,13 @@ public class CustomerReviewServiceImpl implements CustomerReviewService {
     public ResponseEntity<Response> updateReview(CustomerReviewDTO customerReviewDTO) {
 
         CustomerReview customerReview = customerReviewRepository.findById(customerReviewDTO.getId())
-                .orElseThrow(() -> new ReviewNotFoundException(customerReviewDTO.getId())); // yorum mevcut mu ?
+                .orElseThrow(() -> new ReviewNotFoundException(customerReviewDTO.getId()));
 
         userRepository.findById(customerReviewDTO.getUserId())
-                .orElseThrow( () -> new UserNotFoundException(customerReviewDTO.getUserId()) ); // user mevcut mu ?
+                .orElseThrow( () -> new UserNotFoundException(customerReviewDTO.getUserId()) );
 
 
-        if (!customerReview.getUserId().equals(customerReviewDTO.getUserId())) { // güncelleyen user, yorumu yazan user mı ?
+        if (!customerReview.getUserId().equals(customerReviewDTO.getUserId())) {
             throw new UnauthorizedOperationException("The user not allowed to update this review.");
         }
 

@@ -13,8 +13,17 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-@OpenAPIDefinition(servers = {@io.swagger.v3.oas.annotations.servers.Server(url = "/",
-        description = "User Service")})
+@OpenAPIDefinition(
+        info = @io.swagger.v3.oas.annotations.info.Info(
+                title = "User Service",
+                version = "1.0.0",
+                description = "Bu API, kullanıcı işlemlerini yönetir."
+        ),
+        servers = {
+                @io.swagger.v3.oas.annotations.servers.Server(url = "/", description = "User Service")
+
+        }
+)
 @Configuration
 public class OpenApiConfigs {
     @Bean
