@@ -14,8 +14,17 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 
-@OpenAPIDefinition(servers = {@io.swagger.v3.oas.annotations.servers.Server(url = "/",
-        description = "Restaurant Service")})
+@OpenAPIDefinition(
+        info = @io.swagger.v3.oas.annotations.info.Info(
+                title = "Restaurant Service",
+                version = "1.0.0",
+                description = "Bu API, restoran ve müşteri değerlendirme işlemlerini yönetir."
+        ),
+        servers = {
+                @io.swagger.v3.oas.annotations.servers.Server(url = "/", description = "Restaurant Service")
+
+        }
+)
 @Configuration
 public class OpenApiConfigs {
     @Bean
