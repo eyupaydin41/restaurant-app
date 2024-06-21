@@ -28,14 +28,6 @@ public class CustomerReviewController {
     private final CustomerReviewService customerReviewService;
 
     @Operation(summary = "Tüm müşteri değerlendirmelerini getir", description = "Bu endpoint tüm müşteri değerlendirmelerini döner")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Başarılı",
-                    content = @Content(mediaType = "application/json",
-                            examples = @ExampleObject(value = "{}"))),
-            @ApiResponse(responseCode = "500", description = "Sunucu hatası",
-                    content = @Content(mediaType = "application/json",
-                            examples = @ExampleObject(value = "{\"statusCode\": \"500\", \"message\": \"Internal Server Error\", \"details\": \"uri=/reviews\"}")))
-    })
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Response> getAllReviews() {
@@ -43,14 +35,6 @@ public class CustomerReviewController {
     }
 
     @Operation(summary = "Müşteri değerlendirmesini ID ile bul", description = "Bu endpoint belirli bir ID'ye sahip müşteri değerlendirmesini döner")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Başarılı",
-                    content = @Content(mediaType = "application/json",
-                            examples = @ExampleObject(value = "{}"))),
-            @ApiResponse(responseCode = "404", description = "Değerlendirme bulunamadı",
-                    content = @Content(mediaType = "application/json",
-                            examples = @ExampleObject(value = "{\"statusCode\": \"404\", \"message\": \"Review not found with id: ?\", \"details\": \"uri=/reviews/{id}\"}"))),
-    })
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Response> getReviewById(
@@ -60,17 +44,6 @@ public class CustomerReviewController {
     }
 
     @Operation(summary = "Yeni bir müşteri değerlendirmesi oluştur", description = "Bu endpoint yeni bir müşteri değerlendirmesi oluşturur")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Değerlendirme oluşturuldu",
-                    content = @Content(mediaType = "application/json",
-                            examples = @ExampleObject(value = "{}"))),
-            @ApiResponse(responseCode = "400", description = "Geçersiz giriş",
-                    content = @Content(mediaType = "application/json",
-                            examples = @ExampleObject(value = "{\"statusCode\": \"400\", \"message\": \"Invalid rating value\", \"details\": \"uri=/reviews\"}"))),
-            @ApiResponse(responseCode = "500", description = "Sunucu hatası",
-                    content = @Content(mediaType = "application/json",
-                            examples = @ExampleObject(value = "{\"statusCode\": \"500\", \"message\": \"Internal Server Error\", \"details\": \"uri=/reviews\"}")))
-    })
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Response> createReview(
@@ -83,20 +56,6 @@ public class CustomerReviewController {
     }
 
     @Operation(summary = "Mevcut bir müşteri değerlendirmesini güncelle", description = "Bu endpoint mevcut bir müşteri değerlendirmesini günceller")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Güncelleme başarılı",
-                    content = @Content(mediaType = "application/json",
-                            examples = @ExampleObject(value = "{}"))),
-            @ApiResponse(responseCode = "400", description = "Geçersiz giriş",
-                    content = @Content(mediaType = "application/json",
-                            examples = @ExampleObject(value = "{\"statusCode\": \"400\", \"message\": \"Invalid rating value\", \"details\": \"uri=/reviews\"}"))),
-            @ApiResponse(responseCode = "404", description = "Değerlendirme bulunamadı",
-                    content = @Content(mediaType = "application/json",
-                            examples = @ExampleObject(value = "{\"statusCode\": \"404\", \"message\": \"Review not found with id: ?\", \"details\": \"uri=/reviews\"}"))),
-            @ApiResponse(responseCode = "500", description = "Sunucu hatası",
-                    content = @Content(mediaType = "application/json",
-                            examples = @ExampleObject(value = "{\"statusCode\": \"500\", \"message\": \"Internal Server Error\", \"details\": \"uri=/reviews\"}")))
-    })
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Response> updateReview(
@@ -109,17 +68,6 @@ public class CustomerReviewController {
     }
 
     @Operation(summary = "Mevcut bir müşteri değerlendirmesini sil", description = "Bu endpoint mevcut bir müşteri değerlendirmesini siler")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Silme başarılı",
-                    content = @Content(mediaType = "application/json",
-                            examples = @ExampleObject(value = "{}"))),
-            @ApiResponse(responseCode = "404", description = "Değerlendirme bulunamadı",
-                    content = @Content(mediaType = "application/json",
-                            examples = @ExampleObject(value = "{\"statusCode\": \"404\", \"message\": \"Review not found with id: ?\", \"details\": \"uri=/reviews\"}"))),
-            @ApiResponse(responseCode = "500", description = "Sunucu hatası",
-                    content = @Content(mediaType = "application/json",
-                            examples = @ExampleObject(value = "{\"statusCode\": \"500\", \"message\": \"Internal Server Error\", \"details\": \"uri=/reviews\"}")))
-    })
     @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Response> deleteReview(
