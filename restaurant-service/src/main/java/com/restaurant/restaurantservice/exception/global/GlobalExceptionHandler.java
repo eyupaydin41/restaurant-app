@@ -48,8 +48,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(UnauthorizedOperationException.class)
     public ResponseEntity<?> handleUnauthorizedOperationException(UnauthorizedOperationException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(HttpStatus.BAD_REQUEST.value(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+        ErrorDetails errorDetails = new ErrorDetails(HttpStatus.UNAUTHORIZED.value(), ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.UNAUTHORIZED);
     }
 
 }
