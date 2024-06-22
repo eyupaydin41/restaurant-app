@@ -43,7 +43,7 @@ modules.xml
 .project
 .settings/
 
-# Spring Boot
+# Spring Boot:.
 spring-boot-starter-actuator/
 spring-boot-starter-tomcat/
 spring*.jar
