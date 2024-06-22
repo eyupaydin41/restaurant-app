@@ -55,3 +55,7 @@ nbbuild/
 dist/
 nbdist/
 nbactions.xml
+
+app-gateway/.mvn
+restaurant-service/.mvn
+user-service/.mvn
