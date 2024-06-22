@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a7343f6e-40e6-4e8b-a537-0a54e520e312" name="Changes" comment="Simplified Swagger annotations">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/restaurant-mic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/restaurant-mic.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-gateway/src/main/resources/application.properties" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;eyupaydin41&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="e5f6fd9b-3635-4f99-b95f-a1016b548747" />
+        <option name="url" value="https://github.com/eyupaydin41/restaurant-app.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2heQkzQXzajLhPnbj2yzmkEAfC7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "openjdk-21",
+    "last_opened_file_path": "C:/Users/Eyüp/Desktop/restaurant-app/app-gateway",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
+    "spring.configuration.checksum": "b72602fe3e47dda3741fefee988073e8",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.restaurant.userservice.validation" />
+      <recent name="com.restaurant.userservice.repository" />
+      <recent name="com.restaurant.userservice.dto" />
+      <recent name="com.restaurant.userservice.service" />
+      <recent name="com.restaurant.userservice.service.impl" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Eyüp\Desktop\restaurant-app\restaurant-service\src\main\java\com\restaurant\restaurantservice\repository" />
+      <recent name="C:\Users\Eyüp\Desktop\restaurant-app\user-service\src\main\java\com\restaurant\userservice" />
+      <recent name="C:\Users\Eyüp\Desktop\restaurant-app\user-service\src\main\java\com\restaurant\userservice\model" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com" />
+      <recent name="com.restaurant.restaurantservice.service" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.restaurant.userservice.model" />
+      <recent name="com.restaurant.userservice.dto.response" />
+      <recent name="com.restaurant.userservice.exception" />
+      <recent name="com.restaurant.userservice.config" />
+      <recent name="com.restaurant.restaurantservice.config" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.RestaurantServiceApplication">
+    <configuration name="AppGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="app-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gateway.AppGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="config-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.configservice.ConfigServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestaurantServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="restaurant-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.restaurantservice.RestaurantServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserAuthenticationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="user-authentication-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.userauthenticationservice.UserAuthenticationServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="user-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.restaurant.userservice.UserServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a7343f6e-40e6-4e8b-a537-0a54e520e312" name="Changes" comment="" />
+      <created>1717952210099</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717952210099</updated>
+      <workItem from="1717952211170" duration="14992000" />
+      <workItem from="1717972623842" duration="155000" />
+      <workItem from="1717972798290" duration="2779000" />
+      <workItem from="1718009330306" duration="15820000" />
+      <workItem from="1718050301285" duration="5106000" />
+      <workItem from="1718101678201" duration="165000" />
+      <workItem from="1718101858983" duration="518000" />
+      <workItem from="1718102392701" duration="17000" />
+      <workItem from="1718102428434" duration="7117000" />
+      <workItem from="1718141735087" duration="10013000" />
+      <workItem from="1718178783385" duration="5720000" />
+      <workItem from="1718200653031" duration="3232000" />
+      <workItem from="1718231068835" duration="1757000" />
+      <workItem from="1718275101502" duration="45170000" />
+      <workItem from="1718453099750" duration="7686000" />
+      <workItem from="1718488493350" duration="5241000" />
+      <workItem from="1718534413850" duration="1810000" />
+      <workItem from="1718547567457" duration="8463000" />
+      <workItem from="1718801064967" duration="18394000" />
+      <workItem from="1718880221301" duration="12132000" />
+      <workItem from="1718920177688" duration="2172000" />
+      <workItem from="1718974716190" duration="15838000" />
+      <workItem from="1718999094490" duration="863000" />
+      <workItem from="1719062766555" duration="3842000" />
+    </task>
+    <task id="LOCAL-00078" summary="Change endpoint path">
+      <option name="closed" value="true" />
+      <created>1718492628798</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1718492628798</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Added OpenApiConfigs for Swagger CORS errors">
+      <option name="closed" value="true" />
+      <created>1718492733058</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1718492733058</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Change database from H2 to MySQL">
+      <option name="closed" value="true" />
+      <created>1718894345751</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1718894345752</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Add ConstraintException class for handling validation errors">
+      <option name="closed" value="true" />
+      <created>1718894411496</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1718894411496</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Update CustomerReviewController methods and endpoints&#10;&#10;- Modified `updateReview` and `deleteReview` endpoints to remove path variables and use request body instead.">
+      <option name="closed" value="true" />
+      <created>1718894668804</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1718894668804</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Add id field to CustomerReviewDTO">
+      <option name="closed" value="true" />
+      <created>1718894702737</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1718894702737</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Update CustomerReviewService with modified method signatures">
+      <option name="closed" value="true" />
+      <created>1718894776579</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1718894776579</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Update CustomerReviewService with modified method signatures">
+      <option name="closed" value="true" />
+      <created>1718895141507</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895141507</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Update CustomerReviewServiceImpl with user validation and response handling&#10;&#10;-Modified `updateReview` method to check if the user updating the review is the original reviewer.">
+      <option name="closed" value="true" />
+      <created>1718895240895</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895240895</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Add DeleteRestaurantRequest DTO">
+      <option name="closed" value="true" />
+      <created>1718895267161</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895267162</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Add DeleteReviewRequest DTO">
+      <option name="closed" value="true" />
+      <created>1718895289167</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895289167</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Add DuplicateUserException for handling duplicate user creation">
+      <option name="closed" value="true" />
+      <created>1718895312351</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895312351</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Updated ErrorDetails class">
+      <option name="closed" value="true" />
+      <created>1718895349361</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895349361</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Updated ErrorDetails class">
+      <option name="closed" value="true" />
+      <created>1718895386374</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895386374</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Updated ErrorDetails class">
+      <option name="closed" value="true" />
+      <created>1718895404819</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895404819</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Update GlobalExceptionHandler to handle additional exceptions">
+      <option name="closed" value="true" />
+      <created>1718895462902</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895462903</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Updated OpenApiConfigs description">
+      <option name="closed" value="true" />
+      <created>1718895494418</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895494418</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Add OpenAPI and Servlet dependencies to app-gateway for Swagger configuration">
+      <option name="closed" value="true" />
+      <created>1718895583626</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895583626</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Add MySQL, OpenAPI, Servlet, and Reactor Core dependencies to restaurant-service">
+      <option name="closed" value="true" />
+      <created>1718895633802</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895633802</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Add MySQL, OpenAPI, Servlet, and Reactor Core dependencies to user-service">
+      <option name="closed" value="true" />
+      <created>1718895703373</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895703373</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Rename ResponseBuilder to ResponseBuilderA to avoid bean name conflict">
+      <option name="closed" value="true" />
+      <created>1718895754084</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895754084</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Add Restaurant entity to user-service for database integration">
+      <option name="closed" value="true" />
+      <created>1718895825725</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895825725</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Added a ManyToOne relationship with the User entity.">
+      <option name="closed" value="true" />
+      <created>1718895906305</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895906305</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Add new categories to RestaurantCategory enum">
+      <option name="closed" value="true" />
+      <created>1718895952647</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895952648</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Update RestaurantController with validation&#10;&#10;- Added @Valid annotation to validate RestaurantDTO in create and update endpoints.&#10;- Included BindingResult to handle validation errors.&#10;- Introduced a new DeleteRestaurantRequest DTO for delete endpoint.&#10;- Added a custom ConstraintException to handle validation errors.">
+      <option name="closed" value="true" />
+      <created>1718896041660</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896041661</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Updated RestaurantDTO with ID and Validation Annotations">
+      <option name="closed" value="true" />
+      <created>1718896114274</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896114274</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Updated RestaurantResponse with User ID">
+      <option name="closed" value="true" />
+      <created>1718896147958</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896147958</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Refactor RestaurantService for DeleteRestaurantRequest">
+      <option name="closed" value="true" />
+      <created>1718896210029</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896210029</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Update RestaurantServiceImpl with User Permissions and DTO Refinements&#10;&#10;- Updated 'createRestaurant' and 'updateRestaurant' methods to include user permission checks based on UserType.&#10;- Added 'UserRepository' dependency to fetch users for permission validation.&#10;- Introduced 'UnauthorizedOperationException' for unauthorized user actions during restaurant creation and update.&#10;- Updated 'deleteRestaurant' method to accept 'DeleteRestaurantRequest' and validate user permissions for deletion.&#10;- Refactored 'RestaurantDTO' to include 'userId' for association and validation purposes.">
+      <option name="closed" value="true" />
+      <created>1718896291164</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896291164</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Added UnauthorizedOperationException for handling unauthorized operations.">
+      <option name="closed" value="true" />
+      <created>1718896344522</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896344523</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Added userType field and established one-to-many relationship with Restaurant entities in User class.">
+      <option name="closed" value="true" />
+      <created>1718896400441</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896400441</updated>
+    </task>
+    <task id="LOCAL-00109" summary="Added User entity to establish database relationship with restaurant-service.">
+      <option name="closed" value="true" />
+      <created>1718896441598</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896441598</updated>
+    </task>
+    <task id="LOCAL-00110" summary="Refactored UserController endpoints and added validation for createUser and updateUser methods.">
+      <option name="closed" value="true" />
+      <created>1718896483966</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896483966</updated>
+    </task>
+    <task id="LOCAL-00111" summary="Added UserDTO to establish database relationship">
+      <option name="closed" value="true" />
+      <created>1718896517440</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896517440</updated>
+    </task>
+    <task id="LOCAL-00112" summary="Updated UserDTO with validation annotations and UserType field.">
+      <option name="closed" value="true" />
+      <created>1718896558688</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896558688</updated>
+    </task>
+    <task id="LOCAL-00113" summary="Added UserRepository to establish database relationship.">
+      <option name="closed" value="true" />
+      <created>1718896589271</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896589271</updated>
+    </task>
+    <task id="LOCAL-00114" summary="Added findByEmail method to UserRepository.">
+      <option name="closed" value="true" />
+      <created>1718896616559</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896616559</updated>
+    </task>
+    <task id="LOCAL-00115" summary="Updated UserResponse with UserType and restaurantList fields.">
+      <option name="closed" value="true" />
+      <created>1718896652586</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896652586</updated>
+    </task>
+    <task id="LOCAL-00116" summary="Refactored updateUser method parameter">
+      <option name="closed" value="true" />
+      <created>1718896688736</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896688737</updated>
+    </task>
+    <task id="LOCAL-00117" summary="Added email validation check in user creation">
+      <option name="closed" value="true" />
+      <created>1718896751134</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896751134</updated>
+    </task>
+    <task id="LOCAL-00118" summary="Added UserType enum for user roles.">
+      <option name="closed" value="true" />
+      <created>1718896772593</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896772593</updated>
+    </task>
+    <task id="LOCAL-00119" summary="Refactored deleteReview method parameter">
+      <option name="closed" value="true" />
+      <created>1718896803897</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1718896803897</updated>
+    </task>
+    <task id="LOCAL-00120" summary="Updated updateUser method to check for duplicate email">
+      <option name="closed" value="true" />
+      <created>1718994855099</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1718994855100</updated>
+    </task>
+    <task id="LOCAL-00121" summary="Enhanced with Swagger annotations">
+      <option name="closed" value="true" />
+      <created>1718995115549</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1718995115549</updated>
+    </task>
+    <task id="LOCAL-00122" summary="Refactored response status">
+      <option name="closed" value="true" />
+      <created>1718995202376</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1718995202376</updated>
+    </task>
+    <task id="LOCAL-00123" summary="Updated .gitignore">
+      <option name="closed" value="true" />
+      <created>1718995677555</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1718995677555</updated>
+    </task>
+    <task id="LOCAL-00124" summary="Deleted comment lines">
+      <option name="closed" value="true" />
+      <created>1718996082613</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1718996082614</updated>
+    </task>
+    <task id="LOCAL-00125" summary="Enhanced with Swagger annotations">
+      <option name="closed" value="true" />
+      <created>1718996996529</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1718996996529</updated>
+    </task>
+    <task id="LOCAL-00126" summary="Simplified Swagger annotations">
+      <option name="closed" value="true" />
+      <created>1718997244747</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1718997244747</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add new categories to RestaurantCategory enum" />
+    <MESSAGE value="Update RestaurantController with validation&#10;&#10;- Added @Valid annotation to validate RestaurantDTO in create and update endpoints.&#10;- Included BindingResult to handle validation errors.&#10;- Introduced a new DeleteRestaurantRequest DTO for delete endpoint.&#10;- Added a custom ConstraintException to handle validation errors." />
+    <MESSAGE value="Updated RestaurantDTO with ID and Validation Annotations" />
+    <MESSAGE value="Updated RestaurantResponse with User ID" />
+    <MESSAGE value="Refactor RestaurantService for DeleteRestaurantRequest" />
+    <MESSAGE value="Update RestaurantServiceImpl with User Permissions and DTO Refinements&#10;&#10;- Updated 'createRestaurant' and 'updateRestaurant' methods to include user permission checks based on UserType.&#10;- Added 'UserRepository' dependency to fetch users for permission validation.&#10;- Introduced 'UnauthorizedOperationException' for unauthorized user actions during restaurant creation and update.&#10;- Updated 'deleteRestaurant' method to accept 'DeleteRestaurantRequest' and validate user permissions for deletion.&#10;- Refactored 'RestaurantDTO' to include 'userId' for association and validation purposes." />
+    <MESSAGE value="Added UnauthorizedOperationException for handling unauthorized operations." />
+    <MESSAGE value="Added userType field and established one-to-many relationship with Restaurant entities in User class." />
+    <MESSAGE value="Added User entity to establish database relationship with restaurant-service." />
+    <MESSAGE value="Refactored UserController endpoints and added validation for createUser and updateUser methods." />
+    <MESSAGE value="Added UserDTO to establish database relationship" />
+    <MESSAGE value="Updated UserDTO with validation annotations and UserType field." />
+    <MESSAGE value="Added UserRepository to establish database relationship." />
+    <MESSAGE value="Added findByEmail method to UserRepository." />
+    <MESSAGE value="Updated UserResponse with UserType and restaurantList fields." />
+    <MESSAGE value="Refactored updateUser method parameter" />
+    <MESSAGE value="Added email validation check in user creation" />
+    <MESSAGE value="Added UserType enum for user roles." />
+    <MESSAGE value="Refactored deleteReview method parameter" />
+    <MESSAGE value="Updated updateUser method to check for duplicate email" />
+    <MESSAGE value="Refactored response status" />
+    <MESSAGE value="Updated .gitignore" />
+    <MESSAGE value="Deleted comment lines" />
+    <MESSAGE value="Enhanced with Swagger annotations" />
+    <MESSAGE value="Simplified Swagger annotations" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
