@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalDouble;
 
@@ -38,7 +39,7 @@ public class CustomerReviewServiceImpl implements CustomerReviewService {
                 .orElseThrow(() -> new RestaurantNotFoundException(customerReviewDTO.getRestaurantId()));
 
         userRepository.findById(customerReviewDTO.getUserId())
-                        .orElseThrow(() -> new UserNotFoundException(customerReviewDTO.getUserId()));
+                .orElseThrow(() -> new UserNotFoundException(customerReviewDTO.getUserId()));
 
         customerReviewRepository.findByUserIdAndRestaurantId(customerReviewDTO.getUserId(), customerReviewDTO.getRestaurantId())
                 .ifPresent((review) -> {
@@ -93,7 +94,7 @@ public class CustomerReviewServiceImpl implements CustomerReviewService {
                 .orElseThrow(() -> new ReviewNotFoundException(customerReviewDTO.getId()));
 
         userRepository.findById(customerReviewDTO.getUserId())
-                .orElseThrow( () -> new UserNotFoundException(customerReviewDTO.getUserId()) );
+                .orElseThrow(() -> new UserNotFoundException(customerReviewDTO.getUserId()));
 
 
         if (!customerReview.getUserId().equals(customerReviewDTO.getUserId())) {
@@ -119,7 +120,7 @@ public class CustomerReviewServiceImpl implements CustomerReviewService {
                 .orElseThrow(() -> new ReviewNotFoundException(deleteReviewRequest.getReviewId()));
 
         userRepository.findById(deleteReviewRequest.getUserId())
-                .orElseThrow( () -> new UserNotFoundException(deleteReviewRequest.getUserId()) );
+                .orElseThrow(() -> new UserNotFoundException(deleteReviewRequest.getUserId()));
 
 
         if (!deleteReviewRequest.getUserId().equals(customerReview.getUserId())) {
@@ -140,6 +141,10 @@ public class CustomerReviewServiceImpl implements CustomerReviewService {
 
     private void updateRestaurantRatings(Restaurant restaurant) {
         List<CustomerReview> customerReviews = restaurant.getCustomerReviews();
+
+        if (customerReviews == null) {
+            customerReviews = new ArrayList<>();
+        }
 
         OptionalDouble serviceRatingAverage = customerReviews.stream().mapToInt(CustomerReview::getServiceRating).average();
         OptionalDouble tasteRatingAverage = customerReviews.stream().mapToInt(CustomerReview::getTasteRating).average();
