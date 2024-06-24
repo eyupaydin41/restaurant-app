@@ -81,6 +81,13 @@ Her mikroservisin bağımlılıklarını yüklemek ve uygulamayı çalıştırma
 mvn clean install
 mvn spring-boot:run
 ```
+Alternatif olarak, JAR dosyası ile uygulamayı çalıştırmak için:
+```bash
+java -jar jars/app-gateway-0.0.1.jar
+java -jar jars/restaurant-service-0.0.1.jar
+java -jar jars/user-service-0.0.1.jar  
+```
+
 
 ## Kullanım
 
